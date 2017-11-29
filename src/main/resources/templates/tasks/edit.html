@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>タスク編集</title>
+</head>
+<body>
+<form th:method="patch" th:action="@{./}" th:object="${taskUpdateForm}">
+    <div>
+        <label>
+            内容: <input type="text" th:field="*{content}"/>
+        </label>
+        <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}">エラーメッセージ</p>
+    </div>
+    <div>
+        <label>
+            完了: <input type="checkbox" th:field="*{done}"/>
+        </label>
+    </div>
+    <div>
+        <input type="submit" value="更新"/>
+    </div>
+</form>
+</body>
+</html>
